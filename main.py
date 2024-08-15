@@ -9,6 +9,23 @@ import os
 
 load_dotenv()
 
+st.set_page_config(
+    menu_items={
+        "Report a bug": "https://github.com/davidgilbertson/gpt_confidence/issues",
+    }
+)
+
+st.sidebar.markdown(
+    """
+This interface is an experiment in showing probabilities ('confidence') in the models response.
+
+It uses the <a href="https://cookbook.openai.com/examples/using_logprobs" target="blank">logprobs</a> feature of the OpenAI API and highlights each token in the response. Brighter red means less certainty.
+
+Hover over a token to see the exact confidence and the top 10 other candidates.
+""",
+    unsafe_allow_html=True,
+)
+
 open_ai_key = st.sidebar.text_input(
     label="OpenAI API key",
     value=os.getenv("OPENAI_API_KEY"),
@@ -19,13 +36,19 @@ client = OpenAI(api_key=open_ai_key)
 models = ["gpt-4o-mini", "gpt-4o"]
 model_name = st.sidebar.radio("Pick a model", options=models, index=1)
 
+
+st.sidebar.divider()
+st.sidebar.link_button(
+    "Code on GitHub", url="https://github.com/davidgilbertson/gpt_confidence"
+)
+
 if "messages" not in st.session_state:
     st.session_state.messages = [
-        dict(
-            role="user",
-            content="From now on, I want you to indicate your uncertainty for each returned token by showing a red underline of varying opacity.",
-        ),
-        dict(role="assistant", content="Sure thing"),
+        # dict(
+        #     role="user",
+        #     content="From now on, I want you to indicate your uncertainty for each returned token by showing a red underline of varying opacity.",
+        # ),
+        # dict(role="assistant", content="Sure thing"),
     ]
 
 
