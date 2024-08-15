@@ -24,7 +24,7 @@ with st.sidebar.expander("About", expanded=True):
     
     Hover over a token to see the exact confidence and the top 10 other candidates.
     
-    Note that there's no LaTex or Markdown support.
+    Note that there's no support for LaTeX or Markdown.
     """,
         unsafe_allow_html=True,
     )
