@@ -1,0 +1,7 @@
+[global]
+showWarningOnDirectExecution = false
+
+[server]
+fileWatcherType = "poll"
+headless = true  # Don't open new tab on run
+runOnSave = true
