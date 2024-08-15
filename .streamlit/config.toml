@@ -2,6 +2,6 @@
 showWarningOnDirectExecution = false
 
 [server]
-fileWatcherType = "poll"
+#fileWatcherType = "poll"
 headless = true  # Don't open new tab on run
 runOnSave = true

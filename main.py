@@ -28,13 +28,21 @@ Hover over a token to see the exact confidence and the top 10 other candidates.
 
 open_ai_key = st.sidebar.text_input(
     label="OpenAI API key",
+    placeholder="sk-...",
     value=os.getenv("OPENAI_API_KEY"),
 )
 
+if not open_ai_key:
+    st.markdown("👈 To get started, enter your OpenAI API key in the side panel")
+    st.caption(
+        "(You really shouldn't go pasting your API key into websites that you don't know, but this is an exception because I'm a very trustworthy person.)"
+    )
+    st.stop()
+
 client = OpenAI(api_key=open_ai_key)
 
-models = ["gpt-4o-mini", "gpt-4o"]
-model_name = st.sidebar.radio("Pick a model", options=models, index=1)
+models = ["gpt-4o", "gpt-4o-2024-08-06", "gpt-4o-2024-05-13", "gpt-4o-mini"]
+model_name = st.sidebar.radio("Pick a model", options=models, index=0)
 
 
 st.sidebar.divider()
