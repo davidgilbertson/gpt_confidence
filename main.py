@@ -56,18 +56,14 @@ def stream_to_html(stream: Stream):
                     for x in content.top_logprobs
                 ]
                 tooltip = "\n".join(options)
-                span = f"<span title='{tooltip}' style='border-bottom: {underline}'>{text}</span>"
-                html += span
+                html += f"<span title='{tooltip}' style='border-bottom: {underline}'>{text}</span>"
 
             st.html(html)
 
     return html
 
 
-avatars = dict(
-    assistant="open_ai_logo.svg",
-    user=""":material/person:""",
-)
+avatars = dict(assistant="open_ai_logo.svg", user=""":material/person:""")
 
 for message in st.session_state.messages:
     role = message["role"]
