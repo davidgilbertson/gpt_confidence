@@ -4,6 +4,8 @@ import math
 import streamlit as st
 from openai import OpenAI, Stream
 
+st.set_page_config(page_title="GPT Confidence")
+
 st.sidebar.markdown(
     """
 This interface is an experiment in showing probabilities ('confidence') in the model's response.
