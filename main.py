@@ -15,6 +15,8 @@ It uses the <a href="https://cookbook.openai.com/examples/using_logprobs" target
 Hover over a token to see the exact confidence and the top 10 candidates.
 
 Note that there's no support for LaTeX or Markdown, since this shows the actual tokens returned by the model.
+
+It uses the `gpt-4o-mini` model.
 """,
     unsafe_allow_html=True,
 )
