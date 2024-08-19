@@ -53,7 +53,7 @@ def stream_to_html(stream: Stream[ChatCompletionChunk]):
                 prob = math.exp(content.logprob)
                 underline = f"3px solid rgba(255, 0, 0, {1-prob ** 1.6:.0%})"
                 options = [
-                    f"{x.token} ({math.exp(x.logprob):.2%})"
+                    f"{x.token}  {math.exp(x.logprob):.4%}"
                     for x in content.top_logprobs
                 ]
                 tooltip = escape("\n".join(options))
